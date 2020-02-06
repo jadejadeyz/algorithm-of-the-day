@@ -33,14 +33,37 @@ class Stack:
             return self.stack[self.top]
 
 
-4
-stack = Stack()
-print(stack.isEmpty())
-array = [i for i in range(10)]
-for i in array:
-    stack.push(i)
-for i in array:
-    print(stack.pop())
-stack.pop()
+class StackWithMin(Stack):
+    def __init__(self):
+        self.minStack = Stack()
 
+
+    def getMin(self):
+        if self.minStack.isEmpty():
+            return 0xffffffffffff
+        else:
+            return self.minStack.peek()
+
+
+    def push(self, val):
+        if val < self.getMin():
+            self.minStack.push(val)
+
+        super().push(val)
+
+
+    def pop(self):
+        value = super().pop()
+        if value == self.minStack.peek():
+            self.minStack.pop()
+
+        return value
+
+
+stack = StackWithMin()
+a = [3, 1, 5, -1, 7]
+for i in a:
+    stack.push(i)
+stack.pop()
+stack.pop()
 print(stack.peek())
