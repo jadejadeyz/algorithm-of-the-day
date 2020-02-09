@@ -18,6 +18,19 @@ class Tree:
             print(node.data)
             self.inOrderTraversal(node.right)
 
+    def preOrder(self, node):
+        if node != None:
+            print(node.data)
+            self.preOrder(node.left)
+            self.preOrder(node.right)
+
+
+    def postOrder(self, node):
+        if node != None:
+            self.preOrder(node.left)
+            self.preOrder(node.right)
+            print(node.data)
+
 
 
 def getHeight(node):

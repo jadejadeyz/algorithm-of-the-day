@@ -90,7 +90,7 @@ def partition(arr, left, right):
             right -= 1
     return left
 
-a1 = np.random.randint(1, 100, 20)
+a1 = np.random.randint(1, 100, 10)
 # print(bubbleSort(a1))
 # print(mergeSort(a1))
 quicksort(a1)
