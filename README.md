@@ -14,11 +14,9 @@ There are three commonly used traversal algorithm:
 
 
 
-# Archieved A.O.T.D.
-\br
+<!-- # Archieved A.O.T.D. -->
+
 
 
 # Awesome Algo resources
-\br
-
-[Wiki: Tree Traversal] (https://en.wikipedia.org/wiki/Tree_traversal)
+[Wiki: Tree Traversal](https://en.wikipedia.org/wiki/Tree_traversal)
