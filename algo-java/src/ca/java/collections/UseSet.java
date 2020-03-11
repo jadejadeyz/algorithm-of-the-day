@@ -27,29 +27,3 @@ public class UseSet {
 
     }
 }
-
-
-public interface OnCompleteListener {
-    public void onComplete(final EventData eventData) throws InterruptedException;
-}
-
-public class Worker {
-    private final ArrayList<OnCompleteListener> listeners;
-
-    public Worker(final ArrayList<OnCompleteListener> listeners) {
-        this.listeners = listeners;
-    }
-
-    public void doWork() {
-        // perform some work and let everyone know
-        final EventData data = executeTask();
-        try {
-            for (final OnCompleteListener listener : listeners) {
-                listener.onComplete(data);
-            }
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-}
