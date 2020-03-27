@@ -38,11 +38,27 @@ public class ReorderList {
             temp = runner.next;
             runner.next = cur;
             cur = runner;
-            if (temp == null)
-                break;
             runner = temp;
         }
-        return runner;
+        return cur;
+    }
+
+    public ListNode reverseZac(ListNode head) {
+        ListNode end = null;
+        ListNode cur = head;
+        ListNode next = head.next;
+        ListNode tmp;
+
+        while (next != null) {
+            tmp = next.next;
+            next.next = cur;
+            cur.next = end;
+            end = cur;
+            cur = next;
+            next = tmp;
+        }
+
+        return cur;
     }
 
     public ListNode mergeTwoList(ListNode headA, ListNode headB) {

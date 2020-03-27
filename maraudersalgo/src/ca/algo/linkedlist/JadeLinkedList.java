@@ -60,12 +60,12 @@ public class JadeLinkedList<T> {
             head = head.next;
         }
         while (cur.next != null && cur.next.next != null) {
-            if (cur.next.data == data)
+            if (cur.next.data == data) {
+                cur.next = cur.next.next;
                 break;
+            }
             cur = cur.next;
         }
-
-        cur.next = cur.next.next;
 
     }
 
