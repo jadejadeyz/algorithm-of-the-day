@@ -58,4 +58,54 @@ public class Sorting {
         }
         return arr[heapsize];
     }
+
+    public int[] mergeSort(int[] arr) {
+        int[] result = arr.clone();
+        mergesortHelper(result, arr, 0, arr.length-1);
+        return result;
+    }
+    public void mergesortHelper(int[] result, int[] arr, int start, int end) {
+        if (start == end)
+            return;
+        if (start + 1 == end) {
+            int t1 = result[start];
+            int t2 = result[end];
+            result[start] = Math.min(t1, t2);
+            result[end] = Math.max(t1, t2);
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        mergesortHelper(arr, result, start, mid);
+        mergesortHelper(arr, result, mid+1, end);
+
+        merge(result, arr, start, end);
+    }
+    public void merge(int[] result, int[] arr, int start, int end) {
+        int i = start;
+        int left = start;
+        int right = (start + end) / 2 + 1;
+        while (right <= end && left <= (start + end) / 2) {
+            if (arr[left] <= arr[right]) {
+                result[i++] = arr[left];
+                left++;
+            }
+            else {
+                result[i++] = arr[right];
+                right++;
+            }
+        }
+        if (right > end) {
+            while (left <= (start+end) / 2) {
+                result[i++] = arr[left];
+                left++;
+            }
+        }
+        if (left > (start + end) / 2) {
+            while (right <= end) {
+                result[i++] = arr[right];
+                right++;
+            }
+        }
+    }
 }

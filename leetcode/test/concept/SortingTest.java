@@ -9,6 +9,15 @@ import static org.junit.jupiter.api.Assertions.*;
 class SortingTest {
 
     @Test
+    void mergesort() {
+        Sorting ms = new Sorting();
+        int[] arr = {5, 1, 4, 2, 3};
+        int[] result = ms.mergeSort(arr);
+        int[] expected = {1, 2, 3, 4, 5};
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
     void selectionSort() {
         int[] arr = {5, 4, 3, 2, 1};
         int[] expected = {1, 2, 3, 4, 5};
