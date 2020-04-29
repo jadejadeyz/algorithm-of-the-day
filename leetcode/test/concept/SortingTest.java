@@ -4,9 +4,22 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 
+import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SortingTest {
+
+    @Test
+    void lambdaDemo() {
+        Comparator<String> compString = (String s1, String s2) -> {
+            return Integer.compare(s1.length(), s2.length()); };
+        String[] strings = {};
+        List<String> list = Arrays.asList("c", "avdsa", "abc", "ba");
+        Collections.sort(list, compString);
+        for (String s: list)
+            System.out.println(s);
+    }
 
     @Test
     void mergesort() {
